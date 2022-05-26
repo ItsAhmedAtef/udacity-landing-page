@@ -1,17 +1,14 @@
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: auto 0;
     padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
     background-color: blueviolet;
     position: absolute;
     top: 70px;
+    font-size: 18px;
 }
 
 .hidden {
@@ -79,7 +76,7 @@ li:hover {
 }
 
 #container h1, #container section {
-    margin: 90px 0;
+    margin: 150px 0;
 }
 
 #container h2 {
