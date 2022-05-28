@@ -66,14 +66,6 @@ setTimeout(() => {
         ul.addEventListener('click', (event) => {
             event.preventDefault();
             if (event.target.nodeName === 'LI') {
-                const navs = document.querySelectorAll('li');
-                for ( const nav of navs ) {
-                    if (nav.id === event.target.id) {
-                        nav.className = 'selected';
-                    } else {
-                        nav.className = '';
-                    }
-                }
                 const section = document.querySelector(`section[data-nav="${event.target.id}"]`);
                 if (section) {
                     // 50 is the space of the fixed header
@@ -104,15 +96,19 @@ document.addEventListener('scroll', () => {
 
     const sections = document.querySelectorAll("section");
     for ( let section of sections ) {
-        // if bottom is showing by more than 100px and top is showing by more than 100px
+        // if bottom is showing by more than 300px and top is showing by more than 300px
         let sectionBottom = (section.getBoundingClientRect().bottom - 300) > 0;
-        let sectionTop = section.getBoundingClientRect().top < window.innerHeight - 400;
+        let sectionTop = section.getBoundingClientRect().top < window.innerHeight - 300;
+        let sectionNav = document.querySelector(`li[id="${section.getAttribute('data-nav')}"]`);
 
         if ( sectionBottom && sectionTop ) {
             section.className = 'active';
+            sectionNav.className = 'selected';
         } else {
             section.className = '';
+            sectionNav.className = '';
         }
+
     }
 
     if (toUp) {

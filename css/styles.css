@@ -48,6 +48,7 @@ ul {
     margin: auto 0;
     display: flex;
     overflow: auto;
+    white-space: nowrap;
 }
 
 li {
